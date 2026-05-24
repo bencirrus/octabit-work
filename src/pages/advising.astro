@@ -1,0 +1,164 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+	.filter(p => p.data.category === 'advisory')
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Advising — ${SITE_TITLE}`} description="AI strategy, digital transformation, and technology leadership consulting." />
+	</head>
+	<body>
+		<Header />
+		<main class="wide">
+			<section class="page-header">
+				<span class="tag tag-advisory">Advisory</span>
+				<h1>Advising</h1>
+				<p class="lead">AI strategy and digital transformation for leaders navigating the shift.</p>
+			</section>
+
+			<section class="services-grid">
+				<div class="service-card">
+					<h3>AI Strategy & Roadmapping</h3>
+					<p>Develop a clear, grounded AI adoption strategy tailored to your organization's goals, maturity, and risk tolerance. Avoid hype — focus on leverage.</p>
+				</div>
+				<div class="service-card">
+					<h3>Digital Transformation</h3>
+					<p>Hands-on guidance through the people, process, and technology changes that make transformation stick — not just a deck that sits on a shelf.</p>
+				</div>
+				<div class="service-card">
+					<h3>Technology Leadership</h3>
+					<p>Fractional CTO and advisory board support for organizations that need senior technology perspective without a full-time hire.</p>
+				</div>
+				<div class="service-card">
+					<h3>Team Enablement</h3>
+					<p>Practical AI literacy and workflow workshops that help teams work better with new tools — customized to your industry and use cases.</p>
+				</div>
+			</section>
+
+			{posts.length > 0 && (
+				<section class="posts-section">
+					<h2>Advisory Notes</h2>
+					<ul class="post-list">
+						{posts.map(post => (
+							<li class="post-item">
+								<a href={`/blog/${post.id}/`}>
+									<span class="post-title">{post.data.title}</span>
+									<span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<section class="cta-section">
+				<h2>Let's talk</h2>
+				<p>Reach out to discuss a project, engagement, or just to exchange ideas.</p>
+				<a href="mailto:hello@octabit.work" class="btn-primary">hello@octabit.work</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.page-header {
+		padding: 3rem 0 2rem;
+	}
+	.page-header .tag { margin-bottom: 0.75rem; }
+	.page-header h1 { margin-bottom: 0.5rem; }
+	.lead {
+		font-size: 1.15rem;
+		color: var(--text-muted);
+		margin: 0;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+		margin: 2rem 0;
+	}
+	.service-card {
+		background: var(--bg-card);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 1.5rem;
+		transition: border-color 0.15s ease, box-shadow 0.15s ease;
+	}
+	.service-card:hover {
+		border-color: var(--accent);
+		box-shadow: var(--shadow-sm);
+	}
+	.service-card h3 {
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+	.service-card p {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		margin: 0;
+	}
+
+	.posts-section { margin: 3rem 0; }
+	.posts-section h2 { margin-bottom: 1rem; }
+	.post-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--border);
+	}
+	.post-item {
+		border-bottom: 1px solid var(--border-subtle);
+	}
+	.post-item a {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 0.85rem 0;
+		color: var(--text);
+		text-decoration: none;
+		gap: 1rem;
+		transition: color 0.15s ease;
+	}
+	.post-item a:hover .post-title { color: var(--accent); }
+	.post-title { font-weight: 500; }
+	.post-date { color: var(--text-faint); font-size: 0.85rem; white-space: nowrap; }
+
+	.cta-section {
+		margin: 3rem 0 1rem;
+		padding: 2.5rem;
+		background: var(--bg-subtle);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+	}
+	.cta-section h2 { margin-bottom: 0.5rem; }
+	.cta-section p { color: var(--text-muted); margin-bottom: 1.25rem; }
+	.btn-primary {
+		display: inline-block;
+		padding: 0.6em 1.4em;
+		background: var(--accent);
+		color: #fff;
+		border-radius: var(--radius-sm);
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		transition: background 0.15s ease;
+	}
+	.btn-primary:hover { background: var(--accent-hover); color: #fff; }
+
+	@media (max-width: 640px) {
+		.services-grid { grid-template-columns: 1fr; }
+		.post-item a { flex-direction: column; gap: 0.15rem; }
+	}
+</style>

@@ -18,5 +18,13 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Publish Date", name: "pubDate", widget: "datetime" }
-      - { label: "Hero Image", name: "heroImage", widget: "image", public_folder: "/images/uploads", media_folder: "public/images/uploads" }
+      - { label: "Updated Date", name: "updatedDate", widget: "datetime", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Advisory", value: "advisory" }
+          - { label: "Creative", value: "creative" }
+        required: false
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false, public_folder: "/images/uploads", media_folder: "public/images/uploads" }
       - { label: "Body", name: "body", widget: "markdown" }
