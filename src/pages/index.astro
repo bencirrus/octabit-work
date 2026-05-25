@@ -7,132 +7,131 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section class="hero">
-				<p class="eyebrow">OctaBit.work</p>
-				<h1>Adapt to AI.</h1>
-				<p class="lead">
-					Strategic advisory and creative work at the intersection of technology, business, and culture.
-				</p>
-				<div class="hero-actions">
-					<a href="/advising" class="btn-primary">Advising</a>
-					<a href="/creating" class="btn-secondary">Creating</a>
-				</div>
-			</section>
+        <head>
+                <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        </head>
+        <body>
+                <Header />
+                <main>
+                        <section class="hero">
+                                <p class="eyebrow">OctaBit.work</p>
+                                <h1>Adapt to AI.</h1>
+                                <p class="lead">
+                                        Strategic advisory and creative work at the intersection of technology, business, and culture.
+                                </p>
+                                <div class="hero-actions">
+                                        <a href="/advising" class="btn-primary">Advising</a>
+                                        <a href="/creating" class="btn-secondary">Creating</a>
+                                </div>
+                        </section>
 
-			<hr />
+                        <hr />
 
-			<section class="offerings">
-				<div class="offering-col">
-					<span class="tag tag-advisory">Advisory</span>
-					<h2>Advising</h2>
-					<p>AI strategy, digital transformation, and technology leadership for organizations navigating rapid change.</p>
-					<a href="/advising" class="section-link">See advisory services &rarr;</a>
-				</div>
-				<div class="offering-col">
-					<span class="tag tag-creative">Creative</span>
-					<h2>Creating</h2>
-					<p>Applications, music, and digital experiences built with craft and intention.</p>
-					<a href="/creating" class="section-link">See creative work &rarr;</a>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+                        <section class="offerings">
+                                <div class="offering-col">
+                                        <span class="tag tag-advisory">Advisory</span>
+                                        <h2>Advising</h2>
+                                        <p>AI strategy, digital transformation, and technology leadership for organizations navigating rapid change.</p>
+                                        <a href="/advising" class="section-link">See advisory services &rarr;</a>
+                                </div>
+                                <div class="offering-col">
+                                        <span class="tag tag-creative">Creative</span>
+                                        <h2>Creating</h2>
+                                        <p>Applications, music, and digital experiences built with craft and intention.</p>
+                                        <a href="/creating" class="section-link">See creative work &rarr;</a>
+                                </div>
+                        </section>
+                </main>
+                <Footer />
+        </body>
 </html>
 
 <style>
-	.hero {
-		padding: 4rem 0 3rem;
-	}
-	.eyebrow {
-		font-size: 0.8rem;
-		font-weight: 600;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--accent);
-		margin-bottom: 1rem;
-	}
-	.hero h1 {
-		font-size: 3.5rem;
-		margin-bottom: 1rem;
-		letter-spacing: -0.03em;
-	}
-	.lead {
-		font-size: 1.2rem;
-		color: var(--text-muted);
-		max-width: 520px;
-		margin-bottom: 2rem;
-	}
-	.hero-actions {
-		display: flex;
-		gap: 0.75rem;
-		flex-wrap: wrap;
-	}
-	.btn-primary {
-		display: inline-block;
-		padding: 0.6em 1.4em;
-		background: var(--accent);
-		color: #fff;
-		border-radius: var(--radius-sm);
-		font-weight: 600;
-		font-size: 0.95rem;
-		text-decoration: none;
-		transition: background 0.15s ease, opacity 0.15s ease;
-	}
-	.btn-primary:hover {
-		background: var(--accent-hover);
-		color: #fff;
-	}
-	.btn-secondary {
-		display: inline-block;
-		padding: 0.6em 1.4em;
-		background: var(--bg-subtle);
-		color: var(--text);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-sm);
-		font-weight: 600;
-		font-size: 0.95rem;
-		text-decoration: none;
-		transition: background 0.15s ease, border-color 0.15s ease;
-	}
-	.btn-secondary:hover {
-		background: var(--border);
-		color: var(--text);
-	}
+        .hero {
+                padding: 4rem 0 3rem;
+        }
+        .eyebrow {
+                font-size: 0.85rem;
+                font-weight: 700;
+                letter-spacing: 0.01em;
+                color: var(--accent);
+                margin-bottom: 1rem;
+        }
+        .hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                letter-spacing: -0.03em;
+        }
+        .lead {
+                font-size: 1.2rem;
+                color: var(--text-muted);
+                max-width: 520px;
+                margin-bottom: 2rem;
+        }
+        .hero-actions {
+                display: flex;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+        }
+        .btn-primary {
+                display: inline-block;
+                padding: 0.6em 1.4em;
+                background: var(--accent);
+                color: #fff;
+                border-radius: var(--radius-sm);
+                font-weight: 600;
+                font-size: 0.95rem;
+                text-decoration: none;
+                transition: background 0.15s ease, opacity 0.15s ease;
+        }
+        .btn-primary:hover {
+                background: var(--accent-hover);
+                color: #fff;
+        }
+        .btn-secondary {
+                display: inline-block;
+                padding: 0.6em 1.4em;
+                background: var(--bg-subtle);
+                color: var(--text);
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                font-weight: 600;
+                font-size: 0.95rem;
+                text-decoration: none;
+                transition: background 0.15s ease, border-color 0.15s ease;
+        }
+        .btn-secondary:hover {
+                background: var(--border);
+                color: var(--text);
+        }
 
-	hr { margin: 2rem 0; }
+        hr { margin: 2rem 0; }
 
-	.offerings {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
-		padding: 2rem 0;
-	}
-	.offering-col .tag { margin-bottom: 0.75rem; }
-	.offering-col h2 {
-		font-size: 1.6rem;
-		margin-bottom: 0.5rem;
-	}
-	.offering-col p {
-		color: var(--text-muted);
-		margin-bottom: 1rem;
-	}
-	.section-link {
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: var(--accent);
-		text-decoration: none;
-	}
-	.section-link:hover { color: var(--accent-hover); }
+        .offerings {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                padding: 2rem 0;
+        }
+        .offering-col .tag { margin-bottom: 0.75rem; }
+        .offering-col h2 {
+                font-size: 1.6rem;
+                margin-bottom: 0.5rem;
+        }
+        .offering-col p {
+                color: var(--text-muted);
+                margin-bottom: 1rem;
+        }
+        .section-link {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--accent);
+                text-decoration: none;
+        }
+        .section-link:hover { color: var(--accent-hover); }
 
-	@media (max-width: 600px) {
-		.hero h1 { font-size: 2.5rem; }
-		.offerings { grid-template-columns: 1fr; gap: 2rem; }
-	}
+        @media (max-width: 600px) {
+                .hero h1 { font-size: 2.5rem; }
+                .offerings { grid-template-columns: 1fr; gap: 2rem; }
+        }
 </style>
