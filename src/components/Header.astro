@@ -4,58 +4,67 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav>
-		<a href="/" class="logo-link" aria-label={SITE_TITLE}>
-			<img src="/images/uploads/octabit.work.logo.png" alt={SITE_TITLE} class="logo" />
-		</a>
-		<div class="nav-links">
-			<HeaderLink href="/advising">Advising</HeaderLink>
-			<HeaderLink href="/creating">Creating</HeaderLink>
-		</div>
-	</nav>
+        <nav>
+                <a href="/" class="logo-link" aria-label={SITE_TITLE}>
+                        <img src="/images/uploads/octabit.work.logo.png" alt="" class="logo" />
+                        <span class="site-name">OctaBit.work</span>
+                </a>
+                <div class="nav-links">
+                        <HeaderLink href="/advising">Advising</HeaderLink>
+                        <HeaderLink href="/creating">Creating</HeaderLink>
+                </div>
+        </nav>
 </header>
 
 <style>
-	header {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		background: var(--bg);
-		border-bottom: 1px solid var(--border);
-		padding: 0 1.5rem;
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-	}
+        header {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                padding: 0 1.5rem;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+        }
 
-	nav {
-		max-width: var(--max-width-wide);
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		height: 60px;
-	}
+        nav {
+                max-width: var(--max-width-wide);
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 60px;
+        }
 
-	.logo-link {
-		display: flex;
-		align-items: center;
-		text-decoration: none;
-	}
+        .logo-link {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                text-decoration: none;
+        }
 
-	.logo {
-		height: 36px;
-		width: auto;
-		border-radius: 0;
-	}
+        .logo {
+                height: 36px;
+                width: auto;
+                border-radius: 0;
+        }
 
-	.nav-links {
-		display: flex;
-		align-items: center;
-		gap: 0.25rem;
-	}
+        .site-name {
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--text);
+                letter-spacing: -0.01em;
+        }
 
-	@media (max-width: 480px) {
-		header { padding: 0 1rem; }
-		.logo { height: 28px; }
-	}
+        .nav-links {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+        }
+
+        @media (max-width: 480px) {
+                header { padding: 0 1rem; }
+                .logo { height: 28px; }
+        }
 </style>
