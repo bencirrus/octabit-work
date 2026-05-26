@@ -7,147 +7,144 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
 const services = (await getCollection('services'))
-	.filter(s => s.data.category === 'advisory')
-	.sort((a, b) => a.data.order - b.data.order);
+        .filter(s => s.data.category === 'advisory')
+        .sort((a, b) => a.data.order - b.data.order);
 
 const posts = (await getCollection('blog'))
-	.filter(p => p.data.category === 'advisory')
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+        .filter(p => p.data.category === 'advisory')
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={`Advising — ${SITE_TITLE}`} description="AI strategy, digital transformation, and technology leadership consulting." />
-	</head>
-	<body>
-		<Header />
-		<main class="wide">
-			<section class="page-header">
-				<span class="tag tag-advisory">Advisory</span>
-				<p class="lead">AI strategy and digital transformation for leaders navigating the shift.</p>
-			</section>
+        <head>
+                <BaseHead title={`Advising — ${SITE_TITLE}`} description="AI strategy, digital transformation, and technology leadership consulting." />
+        </head>
+        <body>
+                <Header />
+                <main class="wide">
+                        <section class="page-header">
+                                <span class="tag tag-advisory">Advisory</span>
+                                <p class="lead">AI strategy and digital transformation for leaders navigating the shift.</p>
+                        </section>
 
-			<section class="services-grid">
-				{services.map(s => (
-					<div class="service-card">
-						<h3>{s.data.title}</h3>
-						<p>{s.data.description}</p>
-					</div>
-				))}
-			</section>
+                        <section class="services-grid">
+                                {services.map(s => (
+                                        <div class="service-card">
+                                                <h3>{s.data.title}</h3>
+                                                <p>{s.data.description}</p>
+                                        </div>
+                                ))}
+                        </section>
 
-			{posts.length > 0 && (
-				<section class="posts-section">
-					<h2>Advisory Notes</h2>
-					<ul class="post-list">
-						{posts.map(post => (
-							<li class="post-item">
-								<a href={`/blog/${post.id}/`}>
-									<span class="post-title">{post.data.title}</span>
-									<span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
-								</a>
-							</li>
-						))}
-					</ul>
-				</section>
-			)}
+                        {posts.length > 0 && (
+                                <section class="posts-section">
+                                        <h2>Advisory Notes</h2>
+                                        <ul class="post-list">
+                                                {posts.map(post => (
+                                                        <li class="post-item">
+                                                                <a href={`/blog/${post.id}/`}>
+                                                                        <span class="post-title">{post.data.title}</span>
+                                                                        <span class="post-date"><FormattedDate date={post.data.pubDate} /></span>
+                                                                </a>
+                                                        </li>
+                                                ))}
+                                        </ul>
+                                </section>
+                        )}
 
-			<section class="cta-section">
-				<h2>Let's talk</h2>
-				<p>Reach out to discuss a project, engagement, or just to exchange ideas.</p>
-				<a href="mailto:hello@octabit.work" class="btn-primary">hello@octabit.work</a>
-			</section>
-		</main>
-		<Footer />
-	</body>
+                        <section class="cta-section">
+                                <h2>Let's talk</h2>
+                                <p>Reach out to discuss a project, engagement, or just to exchange ideas.</p>
+                                <a href="mailto:hello@octabit.work" class="btn-primary">hello@octabit.work</a>
+                        </section>
+                </main>
+                <Footer />
+        </body>
 </html>
 
 <style>
-	.page-header {
-		padding: 3rem 0 2rem;
-	}
-	.page-header .tag { margin-bottom: 0.75rem; display: block; }
-	.lead {
-		font-size: 1.15rem;
-		color: var(--text-muted);
-		margin: 0;
-	}
+        .page-header {
+                padding: 3rem 0 2rem;
+        }
+        .page-header .tag { margin-bottom: 0.75rem; display: block; }
+        .lead {
+                font-size: 1.15rem;
+                color: var(--text-muted);
+                margin: 0;
+        }
 
-	.services-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.25rem;
-		margin: 2rem 0;
-	}
-	.service-card {
-		background: var(--bg-card);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		padding: 1.5rem;
-		transition: border-color 0.15s ease, box-shadow 0.15s ease;
-	}
-	.service-card:hover {
-		border-color: var(--accent);
-		box-shadow: var(--shadow-sm);
-	}
-	.service-card h3 {
-		font-size: 1.1rem;
-		margin-bottom: 0.5rem;
-	}
-	.service-card p {
-		color: var(--text-muted);
-		font-size: 0.95rem;
-		margin: 0;
-	}
+        .services-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                margin: 2rem 0;
+        }
+        .service-card {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 1rem 1.125rem;
+        }
+        .service-card h3 {
+                font-size: 0.95rem;
+                font-weight: 700;
+                margin-bottom: 0.25rem;
+        }
+        .service-card p {
+                color: var(--text-muted);
+                font-size: 0.875rem;
+                margin: 0;
+                line-height: 1.5;
+        }
 
-	.posts-section { margin: 3rem 0; }
-	.posts-section h2 { margin-bottom: 1rem; }
-	.post-list {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		border-top: 1px solid var(--border);
-	}
-	.post-item { border-bottom: 1px solid var(--border-subtle); }
-	.post-item a {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		padding: 0.85rem 0;
-		color: var(--text);
-		text-decoration: none;
-		gap: 1rem;
-		transition: color 0.15s ease;
-	}
-	.post-item a:hover .post-title { color: var(--accent); }
-	.post-title { font-weight: 500; }
-	.post-date { color: var(--text-faint); font-size: 0.85rem; white-space: nowrap; }
+        .posts-section { margin: 3rem 0; }
+        .posts-section h2 { margin-bottom: 1rem; }
+        .post-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border-top: 1px solid var(--border);
+        }
+        .post-item { border-bottom: 1px solid var(--border-subtle); }
+        .post-item a {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                padding: 0.85rem 0;
+                color: var(--text);
+                text-decoration: none;
+                gap: 1rem;
+                transition: color 0.15s ease;
+        }
+        .post-item a:hover .post-title { color: var(--accent); }
+        .post-title { font-weight: 500; }
+        .post-date { color: var(--text-faint); font-size: 0.85rem; white-space: nowrap; }
 
-	.cta-section {
-		margin: 3rem 0 1rem;
-		padding: 2.5rem;
-		background: var(--bg-subtle);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-	}
-	.cta-section h2 { margin-bottom: 0.5rem; }
-	.cta-section p { color: var(--text-muted); margin-bottom: 1.25rem; }
-	.btn-primary {
-		display: inline-block;
-		padding: 0.6em 1.4em;
-		background: var(--accent);
-		color: #fff;
-		border-radius: var(--radius-sm);
-		font-weight: 600;
-		font-size: 0.95rem;
-		text-decoration: none;
-		transition: background 0.15s ease;
-	}
-	.btn-primary:hover { background: var(--accent-hover); color: #fff; }
+        .cta-section {
+                margin: 3rem 0 1rem;
+                padding: 2.5rem;
+                background: var(--bg-subtle);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+        }
+        .cta-section h2 { margin-bottom: 0.5rem; }
+        .cta-section p { color: var(--text-muted); margin-bottom: 1.25rem; }
+        .btn-primary {
+                display: inline-block;
+                padding: 0.6em 1.4em;
+                background: var(--accent);
+                color: #fff;
+                border-radius: var(--radius-sm);
+                font-weight: 600;
+                font-size: 0.95rem;
+                text-decoration: none;
+                transition: background 0.15s ease;
+        }
+        .btn-primary:hover { background: var(--accent-hover); color: #fff; }
 
-	@media (max-width: 640px) {
-		.services-grid { grid-template-columns: 1fr; }
-		.post-item a { flex-direction: column; gap: 0.15rem; }
-	}
+        @media (max-width: 640px) {
+                .services-grid { grid-template-columns: 1fr; }
+                .post-item a { flex-direction: column; gap: 0.15rem; }
+        }
 </style>
