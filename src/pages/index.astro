@@ -14,25 +14,27 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<Header />
 		<main>
 			<section class="hero">
-				<p class="eyebrow">OctaBit.work</p>
-				<h1>Adapt to AI.</h1>
-				<p class="lead">
-					Strategic advisory and creative work at the intersection of technology, business, and culture.
-				</p>
+				<div class="hero-content">
+					<h1>Adapt to AI.</h1>
+					<p class="lead">
+						Strategic advisory and creative work at the intersection of technology, business, and culture.
+					</p>
+				</div>
+				<div class="hero-mark" aria-hidden="true">
+					<img src="/images/uploads/octabit.work.logo.png" alt="" />
+				</div>
 			</section>
 
 			<hr />
 
 			<section class="offerings">
 				<div class="offering-col">
-					<span class="tag tag-advisory">Advisory</span>
+					<a href="/advising" class="tag tag-advisory">Advisory</a>
 					<p>AI strategy, digital transformation, and technology leadership for organizations navigating rapid change.</p>
-					<a href="/advising" class="section-link">See advisory services &rarr;</a>
 				</div>
 				<div class="offering-col">
-					<span class="tag tag-creative">Creative</span>
+					<a href="/creating" class="tag tag-creative">Creative</a>
 					<p>Applications, music, and digital experiences built with craft and intention.</p>
-					<a href="/creating" class="section-link">See creative work &rarr;</a>
 				</div>
 			</section>
 		</main>
@@ -42,24 +44,55 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <style>
 	.hero {
+		position: relative;
 		padding: 4rem 0 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		overflow: hidden;
 	}
-	.eyebrow {
-		font-size: 0.85rem;
-		font-weight: 700;
-		color: var(--accent);
-		margin-bottom: 1rem;
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 560px;
 	}
+
 	.hero h1 {
 		font-size: 3.5rem;
 		margin-bottom: 1rem;
 		letter-spacing: -0.03em;
 	}
+
 	.lead {
 		font-size: 1.2rem;
 		color: var(--text-muted);
-		max-width: 520px;
 		margin: 0;
+	}
+
+	.hero-mark {
+		position: absolute;
+		right: -2rem;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 260px;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.hero-mark img {
+		width: 100%;
+		height: auto;
+		border-radius: 0;
+		opacity: 0.06;
+		filter: grayscale(1);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.hero-mark img {
+			opacity: 0.04;
+			filter: grayscale(1) invert(1);
+		}
 	}
 
 	hr { margin: 2rem 0; }
@@ -70,21 +103,25 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		gap: 3rem;
 		padding: 2rem 0;
 	}
-	.offering-col .tag { margin-bottom: 0.75rem; display: block; }
+
+	.offering-col .tag {
+		margin-bottom: 0.75rem;
+		display: inline-block;
+		cursor: pointer;
+		text-decoration: none;
+		transition: opacity 0.15s ease;
+	}
+	.offering-col .tag:hover { opacity: 0.75; }
+
 	.offering-col p {
 		color: var(--text-muted);
-		margin-bottom: 1rem;
+		margin: 0;
 	}
-	.section-link {
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: var(--accent);
-		text-decoration: none;
-	}
-	.section-link:hover { color: var(--accent-hover); }
 
 	@media (max-width: 600px) {
+		.hero { flex-direction: column; align-items: flex-start; }
 		.hero h1 { font-size: 2.5rem; }
+		.hero-mark { width: 160px; right: -1rem; }
 		.offerings { grid-template-columns: 1fr; gap: 2rem; }
 	}
 </style>
