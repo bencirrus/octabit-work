@@ -4,67 +4,111 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-        <nav>
-                <a href="/" class="logo-link" aria-label={SITE_TITLE}>
-                        <img src="/favicon.svg" alt="" class="logo" />
-                        <span class="site-name">OctaBit.work</span>
-                </a>
-                <div class="nav-links">
-                        <HeaderLink href="/advising">Advising</HeaderLink>
-                        <HeaderLink href="/creating">Creating</HeaderLink>
-                </div>
-        </nav>
+	<nav>
+		<a href="/" class="logo-link" aria-label={SITE_TITLE}>
+			<img src="/favicon.svg" alt="" class="logo" />
+			<span class="site-name">OctaBit.work</span>
+		</a>
+		<div class="nav-links">
+			<HeaderLink href="/advising">Advising</HeaderLink>
+			<HeaderLink href="/creating">Creating</HeaderLink>
+			<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+				<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+				</svg>
+				<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+				</svg>
+			</button>
+		</div>
+	</nav>
 </header>
 
+<script>
+	const btn = document.getElementById('theme-toggle');
+	function applyTheme(dark: boolean) {
+		document.documentElement.classList.toggle('dark', dark);
+		localStorage.setItem('theme', dark ? 'dark' : 'light');
+	}
+	btn?.addEventListener('click', () => {
+		applyTheme(!document.documentElement.classList.contains('dark'));
+	});
+</script>
+
 <style>
-        header {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                background: var(--bg);
-                border-bottom: 1px solid var(--border);
-                padding: 0 1.5rem;
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
-        }
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: var(--bg);
+		border-bottom: 1px solid var(--border);
+		padding: 0 1.5rem;
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
 
-        nav {
-                max-width: var(--max-width-wide);
-                margin: 0 auto;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                height: 60px;
-        }
+	nav {
+		max-width: var(--max-width-wide);
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 60px;
+	}
 
-        .logo-link {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                text-decoration: none;
-        }
+	.logo-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		text-decoration: none;
+	}
 
-        .logo {
-                height: 36px;
-                width: auto;
-                border-radius: 0;
-        }
+	.logo {
+		height: 36px;
+		width: auto;
+		border-radius: 0;
+	}
 
-        .site-name {
-                font-size: 1rem;
-                font-weight: 700;
-                color: var(--text);
-                letter-spacing: -0.01em;
-        }
+	.site-name {
+		font-size: 1rem;
+		font-weight: 700;
+		color: var(--text);
+		letter-spacing: -0.01em;
+	}
 
-        .nav-links {
-                display: flex;
-                align-items: center;
-                gap: 0.25rem;
-        }
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
 
-        @media (max-width: 480px) {
-                header { padding: 0 1rem; }
-                .logo { height: 28px; }
-        }
+	.theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border: none;
+		background: transparent;
+		color: var(--text-muted);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		transition: color 0.15s ease, background 0.15s ease;
+		margin-left: 0.25rem;
+	}
+	.theme-toggle:hover {
+		color: var(--text);
+		background: var(--bg-subtle);
+	}
+
+	/* Show sun in dark mode, moon in light mode */
+	.icon-sun { display: none; }
+	.icon-moon { display: block; }
+	:global(html.dark) .icon-sun { display: block; }
+	:global(html.dark) .icon-moon { display: none; }
+
+	@media (max-width: 480px) {
+		header { padding: 0 1rem; }
+		.logo { height: 28px; }
+	}
 </style>

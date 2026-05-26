@@ -3,14 +3,7 @@ const today = new Date();
 ---
 
 <footer>
-	<div class="footer-inner">
-		<span class="copy">&copy; {today.getFullYear()} OctaBit.work LLC</span>
-		<nav class="footer-nav">
-			<a href="/advising">Advising</a>
-			<a href="/creating">Creating</a>
-			<a href="/admin/" rel="noopener">CMS</a>
-		</nav>
-	</div>
+	<span class="copy">&copy; {today.getFullYear()} OctaBit.work LLC</span>
 </footer>
 
 <style>
@@ -18,39 +11,12 @@ const today = new Date();
 		border-top: 1px solid var(--border);
 		padding: 2rem 1.5rem;
 		background: var(--bg);
-	}
-
-	.footer-inner {
-		max-width: var(--max-width-wide);
+		max-width: calc(100% - 3rem);
 		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: 1rem;
 	}
 
 	.copy {
 		color: var(--text-faint);
 		font-size: 0.875rem;
-	}
-
-	.footer-nav {
-		display: flex;
-		gap: 1.5rem;
-	}
-
-	.footer-nav a {
-		color: var(--text-muted);
-		font-size: 0.875rem;
-		text-decoration: none;
-		transition: color 0.15s ease;
-	}
-	.footer-nav a:hover {
-		color: var(--text);
-	}
-
-	@media (max-width: 480px) {
-		.footer-inner { flex-direction: column; align-items: flex-start; }
 	}
 </style>
