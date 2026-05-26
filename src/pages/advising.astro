@@ -6,8 +6,11 @@ import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
-const allPosts = await getCollection('blog');
-const posts = allPosts
+const services = (await getCollection('services'))
+	.filter(s => s.data.category === 'advisory')
+	.sort((a, b) => a.data.order - b.data.order);
+
+const posts = (await getCollection('blog'))
 	.filter(p => p.data.category === 'advisory')
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
@@ -22,27 +25,16 @@ const posts = allPosts
 		<main class="wide">
 			<section class="page-header">
 				<span class="tag tag-advisory">Advisory</span>
-				<h1>Advising</h1>
 				<p class="lead">AI strategy and digital transformation for leaders navigating the shift.</p>
 			</section>
 
 			<section class="services-grid">
-				<div class="service-card">
-					<h3>AI Strategy & Roadmapping</h3>
-					<p>Develop a clear, grounded AI adoption strategy tailored to your organization's goals, maturity, and risk tolerance. Avoid hype — focus on leverage.</p>
-				</div>
-				<div class="service-card">
-					<h3>Digital Transformation</h3>
-					<p>Hands-on guidance through the people, process, and technology changes that make transformation stick — not just a deck that sits on a shelf.</p>
-				</div>
-				<div class="service-card">
-					<h3>Technology Leadership</h3>
-					<p>Fractional CTO and advisory board support for organizations that need senior technology perspective without a full-time hire.</p>
-				</div>
-				<div class="service-card">
-					<h3>Team Enablement</h3>
-					<p>Practical AI literacy and workflow workshops that help teams work better with new tools — customized to your industry and use cases.</p>
-				</div>
+				{services.map(s => (
+					<div class="service-card">
+						<h3>{s.data.title}</h3>
+						<p>{s.data.description}</p>
+					</div>
+				))}
 			</section>
 
 			{posts.length > 0 && (
@@ -75,8 +67,7 @@ const posts = allPosts
 	.page-header {
 		padding: 3rem 0 2rem;
 	}
-	.page-header .tag { margin-bottom: 0.75rem; }
-	.page-header h1 { margin-bottom: 0.5rem; }
+	.page-header .tag { margin-bottom: 0.75rem; display: block; }
 	.lead {
 		font-size: 1.15rem;
 		color: var(--text-muted);
@@ -118,9 +109,7 @@ const posts = allPosts
 		padding: 0;
 		border-top: 1px solid var(--border);
 	}
-	.post-item {
-		border-bottom: 1px solid var(--border-subtle);
-	}
+	.post-item { border-bottom: 1px solid var(--border-subtle); }
 	.post-item a {
 		display: flex;
 		justify-content: space-between;

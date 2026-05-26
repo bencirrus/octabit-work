@@ -6,8 +6,11 @@ import { SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
-const allPosts = await getCollection('blog');
-const posts = allPosts
+const services = (await getCollection('services'))
+	.filter(s => s.data.category === 'creative')
+	.sort((a, b) => a.data.order - b.data.order);
+
+const posts = (await getCollection('blog'))
 	.filter(p => p.data.category === 'creative')
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
@@ -22,39 +25,17 @@ const posts = allPosts
 		<main class="wide">
 			<section class="page-header">
 				<span class="tag tag-creative">Creative</span>
-				<h1>Creating</h1>
 				<p class="lead">Applications, music, and digital experiences built with craft and intention.</p>
 			</section>
 
 			<section class="projects-grid">
-				<div class="project-card">
-					<div class="project-meta">
-						<span class="project-type">Application</span>
+				{services.map(s => (
+					<div class="project-card">
+						{s.data.type && <div class="project-type">{s.data.type}</div>}
+						<h3>{s.data.title}</h3>
+						<p>{s.data.description}</p>
 					</div>
-					<h3>OctaBit.work</h3>
-					<p>This site — a clean, CMS-powered blog and portfolio built on Astro and Cloudflare, designed for speed and ease of updating.</p>
-				</div>
-				<div class="project-card">
-					<div class="project-meta">
-						<span class="project-type">Application</span>
-					</div>
-					<h3>AI Workflow Tools</h3>
-					<p>Custom internal tools and automation pipelines that help small teams do more with AI — without requiring engineering resources.</p>
-				</div>
-				<div class="project-card">
-					<div class="project-meta">
-						<span class="project-type">Music</span>
-					</div>
-					<h3>Original Compositions</h3>
-					<p>Instrumental and electronic music exploring the space between structure and improvisation. Released independently and in collaboration.</p>
-				</div>
-				<div class="project-card">
-					<div class="project-meta">
-						<span class="project-type">Writing</span>
-					</div>
-					<h3>Notes & Essays</h3>
-					<p>Short-form writing on technology, creativity, and the ways humans and machines are learning to work together.</p>
-				</div>
+				))}
 			</section>
 
 			{posts.length > 0 && (
@@ -87,8 +68,7 @@ const posts = allPosts
 	.page-header {
 		padding: 3rem 0 2rem;
 	}
-	.page-header .tag { margin-bottom: 0.75rem; }
-	.page-header h1 { margin-bottom: 0.5rem; }
+	.page-header .tag { margin-bottom: 0.75rem; display: block; }
 	.lead {
 		font-size: 1.15rem;
 		color: var(--text-muted);
@@ -112,13 +92,13 @@ const posts = allPosts
 		border-color: var(--accent);
 		box-shadow: var(--shadow-sm);
 	}
-	.project-meta { margin-bottom: 0.5rem; }
 	.project-type {
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;
 		text-transform: uppercase;
 		color: var(--text-faint);
+		margin-bottom: 0.4rem;
 	}
 	.project-card h3 {
 		font-size: 1.1rem;

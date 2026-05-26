@@ -9,6 +9,23 @@ media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "services"
+    label: "Services & Projects"
+    folder: "src/content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Advisory", value: "advisory" }
+          - { label: "Creative", value: "creative" }
+      - { label: "Type (Creative only — e.g. Application, Music, Writing)", name: "type", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 99 }
+
   - name: "blog"
     label: "Blog Posts"
     folder: "src/content/blog"

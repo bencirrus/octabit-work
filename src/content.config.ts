@@ -14,4 +14,15 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const services = defineCollection({
+	loader: glob({ base: "./src/content/services", pattern: "**/*.md" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		category: z.enum(["advisory", "creative"]),
+		type: z.string().optional(),
+		order: z.number().default(99),
+	}),
+});
+
+export const collections = { blog, services };
