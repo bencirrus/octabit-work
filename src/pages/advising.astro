@@ -29,7 +29,12 @@ const posts = (await getCollection('blog'))
                         </section>
 
                         <section class="services-grid">
-                                {services.map(s => (
+                                {services.map(s => s.data.link ? (
+                                        <a class="service-card service-card--link" href={s.data.link} target="_blank" rel="noopener noreferrer">
+                                                <h3>{s.data.title}</h3>
+                                                <p>{s.data.description}</p>
+                                        </a>
+                                ) : (
                                         <div class="service-card">
                                                 <h3>{s.data.title}</h3>
                                                 <p>{s.data.description}</p>
@@ -85,6 +90,19 @@ const posts = (await getCollection('blog'))
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
                 padding: 1rem 1.125rem;
+                text-decoration: none;
+                display: block;
+                color: inherit;
+        }
+        .service-card--link {
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .service-card--link:hover {
+                border-color: var(--accent);
+                box-shadow: var(--shadow-sm);
+        }
+        .service-card--link:hover h3 {
+                color: var(--accent);
         }
         .service-card h3 {
                 font-size: 0.95rem;

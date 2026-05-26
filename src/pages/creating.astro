@@ -29,7 +29,13 @@ const posts = (await getCollection('blog'))
                         </section>
 
                         <section class="projects-grid">
-                                {services.map(s => (
+                                {services.map(s => s.data.link ? (
+                                        <a class="project-card project-card--link" href={s.data.link} target="_blank" rel="noopener noreferrer">
+                                                {s.data.type && <div class="project-type">{s.data.type}</div>}
+                                                <h3>{s.data.title}</h3>
+                                                <p>{s.data.description}</p>
+                                        </a>
+                                ) : (
                                         <div class="project-card">
                                                 {s.data.type && <div class="project-type">{s.data.type}</div>}
                                                 <h3>{s.data.title}</h3>
@@ -86,6 +92,19 @@ const posts = (await getCollection('blog'))
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
                 padding: 1rem 1.125rem;
+                text-decoration: none;
+                display: block;
+                color: inherit;
+        }
+        .project-card--link {
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .project-card--link:hover {
+                border-color: var(--accent);
+                box-shadow: var(--shadow-sm);
+        }
+        .project-card--link:hover h3 {
+                color: var(--accent);
         }
         .project-type {
                 font-size: 0.75rem;

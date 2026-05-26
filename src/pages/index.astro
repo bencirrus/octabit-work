@@ -36,28 +36,38 @@ const creativeServices = allServices
                                         <a href="/advising" class="tag tag-advisory">Advisory Services</a>
                                         <p class="col-desc">AI strategy, digital transformation, and technology leadership for organizations navigating rapid change.</p>
                                         {advisoryServices.length > 0 && (
-                                                <ul class="service-list">
-                                                        {advisoryServices.map(s => (
-                                                                <li class="service-card">
+                                                <div class="service-list">
+                                                        {advisoryServices.map(s => s.data.link ? (
+                                                                <a class="service-card service-card--link" href={s.data.link} target="_blank" rel="noopener noreferrer">
                                                                         <strong>{s.data.title}</strong>
                                                                         <p>{s.data.description}</p>
-                                                                </li>
+                                                                </a>
+                                                        ) : (
+                                                                <div class="service-card">
+                                                                        <strong>{s.data.title}</strong>
+                                                                        <p>{s.data.description}</p>
+                                                                </div>
                                                         ))}
-                                                </ul>
+                                                </div>
                                         )}
                                 </div>
                                 <div class="offering-col">
                                         <a href="/creating" class="tag tag-creative">Creative Work</a>
                                         <p class="col-desc">Applications, music, and digital experiences built with craft and intention.</p>
                                         {creativeServices.length > 0 && (
-                                                <ul class="service-list">
-                                                        {creativeServices.map(s => (
-                                                                <li class="service-card">
+                                                <div class="service-list">
+                                                        {creativeServices.map(s => s.data.link ? (
+                                                                <a class="service-card service-card--link" href={s.data.link} target="_blank" rel="noopener noreferrer">
                                                                         <strong>{s.data.title}</strong>
                                                                         <p>{s.data.description}</p>
-                                                                </li>
+                                                                </a>
+                                                        ) : (
+                                                                <div class="service-card">
+                                                                        <strong>{s.data.title}</strong>
+                                                                        <p>{s.data.description}</p>
+                                                                </div>
                                                         ))}
-                                                </ul>
+                                                </div>
                                         )}
                                 </div>
                         </section>
@@ -119,6 +129,9 @@ const creativeServices = allServices
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
                 padding: 1rem 1.125rem;
+                text-decoration: none;
+                display: block;
+                color: inherit;
         }
 
         .service-card strong {
@@ -133,6 +146,17 @@ const creativeServices = allServices
                 color: var(--text-muted);
                 margin: 0;
                 line-height: 1.5;
+        }
+
+        .service-card--link {
+                transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .service-card--link:hover {
+                border-color: var(--accent);
+                box-shadow: var(--shadow-sm);
+        }
+        .service-card--link:hover strong {
+                color: var(--accent);
         }
 
         @media (max-width: 600px) {
