@@ -4,4 +4,5 @@ description: "Custom internal tools and automation pipelines that help small tea
 category: creative
 type: Application
 order: 2
+featured: true
 ---

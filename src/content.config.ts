@@ -23,6 +23,7 @@ const services = defineCollection({
                 type: z.string().optional(),
                 order: z.number().default(99),
                 featured: z.boolean().default(false),
+                link: z.string().url().optional(),
         }),
 });
 

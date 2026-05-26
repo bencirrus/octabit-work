@@ -4,4 +4,5 @@ description: "Short-form writing on technology, creativity, and the ways humans 
 category: creative
 type: Writing
 order: 4
+featured: true
 ---

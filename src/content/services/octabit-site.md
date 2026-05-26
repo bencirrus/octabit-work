@@ -4,4 +4,5 @@ description: "This site — a clean, CMS-powered blog and portfolio built on Ast
 category: creative
 type: Application
 order: 1
+featured: true
 ---
