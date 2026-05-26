@@ -3,20 +3,70 @@ const today = new Date();
 ---
 
 <footer>
-	<span class="copy">&copy; {today.getFullYear()} OctaBit.work LLC</span>
+	<div class="footer-inner">
+		<span class="copy">&copy; {today.getFullYear()} OctaBit.work LLC</span>
+		<div class="footer-links">
+			<a href="https://linkedin.com" class="btn-connect" target="_blank" rel="noopener noreferrer">Connect</a>
+			<a href="/legal" class="legal-link">Legal</a>
+		</div>
+	</div>
 </footer>
 
 <style>
 	footer {
 		border-top: 1px solid var(--border);
-		padding: 2rem 1.5rem;
+		padding: 1.5rem;
 		background: var(--bg);
-		max-width: calc(100% - 3rem);
+	}
+
+	.footer-inner {
+		max-width: var(--max-width-wide);
 		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
 	}
 
 	.copy {
 		color: var(--text-faint);
 		font-size: 0.875rem;
+	}
+
+	.footer-links {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.btn-connect {
+		display: inline-block;
+		padding: 0.4em 1em;
+		background: var(--accent);
+		color: #fff;
+		border-radius: var(--radius-sm);
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: background 0.15s ease;
+	}
+	.btn-connect:hover {
+		background: var(--accent-hover);
+		color: #fff;
+	}
+
+	.legal-link {
+		color: var(--text-faint);
+		font-size: 0.875rem;
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+	.legal-link:hover {
+		color: var(--text-muted);
+	}
+
+	@media (max-width: 480px) {
+		.footer-inner { flex-direction: column; align-items: flex-start; }
 	}
 </style>
