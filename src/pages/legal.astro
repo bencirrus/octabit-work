@@ -5,141 +5,141 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
 
 const sections = [
-	{ id: 'privacy', label: 'Privacy' },
-	{ id: 'cookies', label: 'Cookies' },
-	{ id: 'terms', label: 'Terms' },
-	{ id: 'accessibility', label: 'Accessibility' },
-	{ id: 'disclaimers', label: 'Disclaimers' },
-	{ id: 'copyright', label: 'Copyright' },
+        { id: 'privacy', label: 'Privacy' },
+        { id: 'cookies', label: 'Cookies' },
+        { id: 'terms', label: 'Terms' },
+        { id: 'accessibility', label: 'Accessibility' },
+        { id: 'disclaimers', label: 'Disclaimers' },
+        { id: 'copyright', label: 'Copyright' },
 ];
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={`Legal — ${SITE_TITLE}`} description="Privacy policy, cookie policy, terms of use, accessibility statement, disclaimers, and copyright notice for OctaBit.work." />
-	</head>
-	<body>
-		<Header />
+        <head>
+                <BaseHead title={`Legal — ${SITE_TITLE}`} description="Privacy policy, cookie policy, terms of use, accessibility statement, disclaimers, and copyright notice for OctaBit.work." />
+        </head>
+        <body>
+                <Header />
 
-		<div class="legal-nav-bar">
-			<nav class="legal-nav">
-				{sections.map(s => (
-					<a href={`#${s.id}`}>{s.label}</a>
-				))}
-			</nav>
-		</div>
+                <div class="legal-nav-bar">
+                        <nav class="legal-nav">
+                                {sections.map(s => (
+                                        <a href={`#${s.id}`}>{s.label}</a>
+                                ))}
+                        </nav>
+                </div>
 
-		<main class="prose-page">
-			<h1>Legal</h1>
+                <main class="prose-page">
+                        <h1>Legal</h1>
 
-			<section id="privacy">
-				<h2>Privacy</h2>
-				<p>OctaBit.work LLC ("we," "us," or "our") respects your privacy. This site does not collect personal information beyond what you voluntarily provide when contacting us directly. We do not sell, trade, or otherwise transfer your personal information to third parties.</p>
-				<p>If you contact us via email or any linked platform, the information you provide is used solely to respond to your inquiry. We retain that information only as long as necessary to fulfill the purpose for which it was provided.</p>
-			</section>
+                        <section id="privacy">
+                                <h2>Privacy</h2>
+                                <p>OctaBit.work LLC ("we," "us," or "our") respects your privacy. This site does not collect personal information beyond what you voluntarily provide when contacting us directly. We do not sell, trade, or otherwise transfer your personal information to third parties.</p>
+                                <p>If you contact us via email or any linked platform, the information you provide is used solely to respond to your inquiry. We retain that information only as long as necessary to fulfill the purpose for which it was provided.</p>
+                        </section>
 
-			<section id="cookies">
-				<h2>Cookies</h2>
-				<p>This site uses a single browser-local storage entry to remember your preferred color scheme (light or dark mode). No cookies are set by this site, and no tracking or advertising cookies are used.</p>
-				<p>Third-party services linked from this site (such as LinkedIn) may use their own cookies subject to their respective privacy policies.</p>
-			</section>
+                        <section id="cookies">
+                                <h2>Cookies</h2>
+                                <p>This site uses a single browser-local storage entry to remember your preferred color scheme (light or dark mode). No cookies are set by this site, and no tracking or advertising cookies are used.</p>
+                                <p>Third-party services linked from this site (such as LinkedIn) may use their own cookies subject to their respective privacy policies.</p>
+                        </section>
 
-			<section id="terms">
-				<h2>Terms of Use</h2>
-				<p>By accessing and using OctaBit.work, you agree to these terms. The content on this site is provided for informational purposes only. We reserve the right to modify or discontinue any part of the site at any time without notice.</p>
-				<p>You may not reproduce, distribute, or create derivative works from content on this site without prior written permission from OctaBit.work LLC.</p>
-			</section>
+                        <section id="terms">
+                                <h2>Terms of Use</h2>
+                                <p>By accessing and using OctaBit.work, you agree to these terms. The content on this site is provided for informational purposes only. We reserve the right to modify or discontinue any part of the site at any time without notice.</p>
+                                <p>You may not reproduce, distribute, or create derivative works from content on this site without prior written permission from OctaBit.work LLC.</p>
+                        </section>
 
-			<section id="accessibility">
-				<h2>Accessibility</h2>
-				<p>OctaBit.work is committed to making this site accessible to all users. We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA. This includes support for screen readers, sufficient color contrast in both light and dark modes, and keyboard-navigable interfaces.</p>
-				<p>If you encounter any accessibility barriers on this site, please contact us so we can address them promptly.</p>
-			</section>
+                        <section id="accessibility">
+                                <h2>Accessibility</h2>
+                                <p>OctaBit.work is committed to making this site accessible to all users. We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA. This includes support for screen readers, sufficient color contrast in both light and dark modes, and keyboard-navigable interfaces.</p>
+                                <p>If you encounter any accessibility barriers on this site, please contact us so we can address them promptly.</p>
+                        </section>
 
-			<section id="disclaimers">
-				<h2>Disclaimers</h2>
-				<p>The information on this site is provided "as is" without warranty of any kind. OctaBit.work LLC makes no representations about the suitability, reliability, availability, timeliness, or accuracy of the information for any purpose.</p>
-				<p>Advisory content published on this site reflects general perspectives and does not constitute professional legal, financial, or technical advice. Engage a qualified professional for advice specific to your situation.</p>
-			</section>
+                        <section id="disclaimers">
+                                <h2>Disclaimers</h2>
+                                <p>The information on this site is provided "as is" without warranty of any kind. OctaBit.work LLC makes no representations about the suitability, reliability, availability, timeliness, or accuracy of the information for any purpose.</p>
+                                <p>Advisory content published on this site reflects general perspectives and does not constitute professional legal, financial, or technical advice. Engage a qualified professional for advice specific to your situation.</p>
+                        </section>
 
-			<section id="copyright">
-				<h2>Copyright</h2>
-				<p>&copy; {new Date().getFullYear()} OctaBit.work LLC. All rights reserved.</p>
-				<p>All original content on this site — including writing, design, and code — is the intellectual property of OctaBit.work LLC unless otherwise noted. Unauthorized use or reproduction without express written permission is prohibited.</p>
-			</section>
-		</main>
+                        <section id="copyright">
+                                <h2>Copyright</h2>
+                                <p>&copy; {new Date().getFullYear()} OctaBit.work LLC. All rights reserved.</p>
+                                <p>All original content on this site — including writing, design, and code — is the intellectual property of OctaBit.work LLC unless otherwise noted. Unauthorized use or reproduction without express written permission is prohibited.</p>
+                        </section>
+                </main>
 
-		<Footer />
-	</body>
+                <Footer />
+        </body>
 </html>
 
 <style>
-	.legal-nav-bar {
-		border-bottom: 1px solid var(--border);
-		background: var(--bg);
-		position: sticky;
-		top: 60px;
-		z-index: 90;
-		padding: 0 1.5rem;
-	}
+        .legal-nav-bar {
+                border-bottom: 1px solid var(--border);
+                background: var(--bg);
+                position: sticky;
+                top: 56px;
+                z-index: 90;
+                padding: 0 1.5rem;
+        }
 
-	.legal-nav {
-		max-width: var(--max-width);
-		margin: 0 auto;
-		display: flex;
-		gap: 0;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch;
-		scrollbar-width: none;
-	}
-	.legal-nav::-webkit-scrollbar { display: none; }
+        .legal-nav {
+                max-width: var(--max-width);
+                margin: 0 auto;
+                display: flex;
+                gap: 0;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+        }
+        .legal-nav::-webkit-scrollbar { display: none; }
 
-	.legal-nav a {
-		display: inline-block;
-		padding: 0.75rem 1rem;
-		font-size: 0.875rem;
-		color: var(--text-muted);
-		text-decoration: none;
-		white-space: nowrap;
-		border-bottom: 2px solid transparent;
-		transition: color 0.15s ease, border-color 0.15s ease;
-	}
-	.legal-nav a:hover {
-		color: var(--text);
-		border-bottom-color: var(--accent);
-	}
+        .legal-nav a {
+                display: inline-block;
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                color: var(--text-muted);
+                text-decoration: none;
+                white-space: nowrap;
+                border-bottom: 2px solid transparent;
+                transition: color 0.15s ease, border-color 0.15s ease;
+        }
+        .legal-nav a:hover {
+                color: var(--text);
+                border-bottom-color: var(--accent);
+        }
 
-	.prose-page {
-		max-width: var(--max-width);
-		margin: 0 auto;
-		padding: 3rem 1.5rem;
-	}
+        .prose-page {
+                max-width: var(--max-width);
+                margin: 0 auto;
+                padding: 3rem 1.5rem;
+        }
 
-	.prose-page h1 {
-		font-size: 2rem;
-		margin-bottom: 2.5rem;
-	}
+        .prose-page h1 {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+        }
 
-	.prose-page section {
-		margin-bottom: 3rem;
-		padding-top: 1rem;
-	}
+        .prose-page section {
+                margin-bottom: 3rem;
+                padding-top: 1rem;
+        }
 
-	.prose-page h2 {
-		font-size: 1.25rem;
-		margin-bottom: 0.75rem;
-		padding-bottom: 0.5rem;
-		border-bottom: 1px solid var(--border-subtle);
-	}
+        .prose-page h2 {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid var(--border-subtle);
+        }
 
-	.prose-page p {
-		color: var(--text-muted);
-		line-height: 1.75;
-		margin-bottom: 1rem;
-	}
+        .prose-page p {
+                color: var(--text-muted);
+                line-height: 1.75;
+                margin-bottom: 1rem;
+        }
 
-	@media (max-width: 480px) {
-		.legal-nav a { padding: 0.75rem 0.75rem; }
-	}
+        @media (max-width: 480px) {
+                .legal-nav a { padding: 0.75rem 0.75rem; }
+        }
 </style>
