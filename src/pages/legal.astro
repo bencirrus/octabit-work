@@ -13,6 +13,21 @@ const sections = [
         { id: 'copyright', label: 'Copyright' },
 ];
 ---
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+
+const sections = [
+        { id: 'privacy', label: 'Privacy' },
+        { id: 'cookies', label: 'Cookies' },
+        { id: 'terms', label: 'Terms' },
+        { id: 'accessibility', label: 'Accessibility' },
+        { id: 'disclaimers', label: 'Disclaimers' },
+        { id: 'copyright', label: 'Copyright' },
+];
+---
 
 <!doctype html>
 <html lang="en">
@@ -79,7 +94,7 @@ const sections = [
                 border-bottom: 1px solid var(--border);
                 background: var(--bg);
                 position: sticky;
-                top: 56px;
+                top: var(--site-header-height, 192px);
                 z-index: 90;
                 padding: 0 1.5rem;
         }
@@ -124,6 +139,7 @@ const sections = [
         .prose-page section {
                 margin-bottom: 3rem;
                 padding-top: 1rem;
+                scroll-margin-top: calc(var(--site-header-height, 192px) + 56px + 1rem);
         }
 
         .prose-page h2 {
