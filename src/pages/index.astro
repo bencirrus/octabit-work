@@ -23,7 +23,7 @@ const creativeServices = allServices
                 <Header />
                 <main>
                         <section class="hero">
-                                <h1>Adapt to AI.</h1>
+                                <h2>Augment <sub>with</sub> Intelligence (A<sub>w</sub>I)</h2>
                                 <p class="lead">
                                         Strategic advisory and creative work at the intersection of technology, business, and culture.
                                 </p>
@@ -71,6 +71,13 @@ const creativeServices = allServices
                                         )}
                                 </div>
                         </section>
+
+                        <section class="hero-bottom">
+                                <div class="hero-box">
+                                        <h2>&gt; The name</h2>
+                                        <p>We aim to bring you the ease of experience of early arcade video games. As technology progresses, console games look better but more complicated for those who don’t have the time or the patience to master the advanced game play, defeating the purpose of games for most people—fun! The name with the simple logo is a play on 8-bit games/graphics.</p>
+                                </div>
+                        </section>
                 </main>
                 <Footer />
         </body>
@@ -78,7 +85,7 @@ const creativeServices = allServices
 
 <style>
         .hero {
-                padding: 4rem 0 3rem;
+                padding: 1.333rem 0 1.5rem;
         }
         .hero h1 {
                 font-size: 3.5rem;
@@ -158,6 +165,29 @@ const creativeServices = allServices
         }
         .service-card--link:hover strong {
                 color: var(--accent);
+        }
+
+        .hero-bottom {
+                margin-top: 2rem;
+        }
+        .hero-box {
+                max-width: var(--max-width);
+                margin: 0 auto;
+                padding: 1.25rem 1.5rem;
+                background: var(--bg-card);
+                border: none;
+                border-radius: var(--radius);
+        }
+        .hero-box h2 {
+                font-size: 1rem;
+                margin: 0 0 0.5rem;
+                font-weight: 700;
+        }
+        .hero-box p {
+                margin: 0;
+                color: var(--text-muted);
+                font-size: 0.9375rem;
+                line-height: 1.5;
         }
 
         @media (max-width: 600px) {

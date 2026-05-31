@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
 @font-face {
         font-family: "Atkinson";
         src: url("/fonts/atkinson-regular.woff") format("woff");
@@ -96,6 +98,11 @@ h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
 h5 { font-size: 1.1rem; }
 
+/* Use JetBrains Mono for prominent/title text */
+h1,h2,h3,h4,h5,h6, .site-name, .service-card strong, .legal-nav a {
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 strong, b { font-weight: 700; }
 
 a {
@@ -157,21 +164,22 @@ textarea, input {
 
 .tag {
         display: inline-block;
-        padding: 0.25em 0.75em;
-        font-size: 0.8125rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        border-radius: 999px;
-        background: var(--accent-subtle);
-        color: var(--accent);
+        padding: 0.4rem 0.8rem;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        border-radius: 6px;
+        background: #e6f8e9;
+        color: #064e2a;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-.tag-advisory { background: rgba(0, 120, 100, 0.08); color: #007864; }
-.tag-creative { background: rgba(120, 0, 180, 0.08); color: #7800b4; }
+.tag-advisory { background: #e6f8e9; color: #064e2a; }
+.tag-creative { background: #e6f2ff; color: #002e6b; }
 
-html.dark .tag-advisory { background: rgba(0, 200, 160, 0.1); color: #00c8a0; }
-html.dark .tag-creative { background: rgba(180, 100, 255, 0.1); color: #b464ff; }
+html.dark .tag-advisory { background: #08341b; color: #9be6a5; }
+html.dark .tag-creative { background: #05203a; color: #9ec6ff; }
 
 @media (max-width: 720px) {
         body { font-size: 16px; }

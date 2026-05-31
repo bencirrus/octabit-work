@@ -25,36 +25,25 @@ import { SITE_TITLE } from '../consts';
 </header>
 
 <script>
-        // Theme toggle — bind on every page load/swap
+        // Theme toggle — bind on every page load/swap and restore preference
         function initThemeToggle() {
                 const btn = document.getElementById('theme-toggle');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const stored = localStorage.getItem('theme');
+                const dark = stored === 'dark' || (stored === null && prefersDark);
+                document.documentElement.classList.toggle('dark', dark);
+
                 if (!btn) return;
-                btn.addEventListener('click', () => {
-                        const dark = !document.documentElement.classList.contains('dark');
-                        document.documentElement.classList.toggle('dark', dark);
-                        localStorage.setItem('theme', dark ? 'dark' : 'light');
-                });
+                if (!btn.__initialized) {
+                        btn.addEventListener('click', () => {
+                                const isDark = document.documentElement.classList.toggle('dark');
+                                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                        });
+                        btn.__initialized = true;
+                }
         }
         initThemeToggle();
         document.addEventListener('astro:after-swap', initThemeToggle);
-
-        // Scroll-driven header size
-        function initScrollHeader() {
-                const header = document.getElementById('site-header');
-                if (!header) return;
-
-                function update() {
-                        const scrolled = window.scrollY > 10;
-                        header!.classList.toggle('scrolled', scrolled);
-                }
-
-                update();
-                window.addEventListener('scroll', update, { passive: true });
-        }
-
-        // Run on first load and after every view transition
-        initScrollHeader();
-        document.addEventListener('astro:after-swap', initScrollHeader);
 </script>
 
 <style>
@@ -86,16 +75,15 @@ import { SITE_TITLE } from '../consts';
                 transition: gap 0.35s ease;
         }
 
-        /* Large state (at top) */
         .logo {
-                height: 64px;
+                height: 48px;
                 width: auto;
                 border-radius: 0;
                 transition: height 0.35s ease, filter 0.2s ease;
         }
 
         .site-name {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 font-weight: 700;
                 color: var(--text);
                 letter-spacing: -0.03em;
@@ -103,28 +91,10 @@ import { SITE_TITLE } from '../consts';
                 white-space: nowrap;
         }
 
-        /* Scrolled / compact state */
-        header.scrolled {
-                padding-top: 0;
-                padding-bottom: 0;
-        }
-
-        header.scrolled .logo {
-                height: 32px;
-        }
-
-        header.scrolled .site-name {
-                font-size: 1rem;
-                letter-spacing: -0.01em;
-        }
-
-        /* Nav height: tall at top, compact when scrolled */
+        /* Nav height: fixed medium size */
         nav {
-                height: 96px;
+                height: 76px;
                 transition: height 0.35s ease;
-        }
-        header.scrolled nav {
-                height: 56px;
         }
 
         .nav-links {
@@ -163,11 +133,8 @@ import { SITE_TITLE } from '../consts';
 
         @media (max-width: 480px) {
                 header { padding: 0 1rem; }
-                .logo { height: 48px; }
-                .site-name { font-size: 1.5rem; }
-                header.scrolled .logo { height: 28px; }
-                header.scrolled .site-name { font-size: 0.95rem; }
-                nav { height: 80px; }
-                header.scrolled nav { height: 52px; }
+                .logo { height: 44px; }
+                .site-name { font-size: 1.3rem; }
+                nav { height: 64px; }
         }
 </style>

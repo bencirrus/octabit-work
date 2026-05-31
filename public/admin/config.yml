@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://octabit-cms-auth.ben-cirrus.workers.dev
   auth_endpoint: /auth
+local_backend: true
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
