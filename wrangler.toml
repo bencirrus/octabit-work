@@ -1,0 +1,10 @@
+name = "octabit-work"
+compatibility_date = "2024-01-01"
+main = "./dist/server/entry.mjs"
+assets = "./dist/client"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.preview]
+vars = { ENVIRONMENT = "preview" }
