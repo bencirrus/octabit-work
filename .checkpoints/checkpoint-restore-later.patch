@@ -1,0 +1,23 @@
+diff --git a/src/components/Header.astro b/src/components/Header.astro
+index 70370d7..69465c9 100644
+--- a/src/components/Header.astro
++++ b/src/components/Header.astro
+@@ -73,6 +73,8 @@ import { SITE_TITLE } from '../consts';
+                 gap: 0.6rem;
+                 text-decoration: none;
+                 transition: gap 0.35s ease;
++                flex: 0 1 auto;
++                min-width: 0;
+         }
+ 
+         .logo {
+@@ -101,6 +103,9 @@ import { SITE_TITLE } from '../consts';
+                 display: flex;
+                 align-items: center;
+                 gap: 0.25rem;
++                flex: 1 1 auto;
++                min-width: 0;
++                justify-content: flex-end;
+         }
+ 
+         :global(html.dark) .logo {
