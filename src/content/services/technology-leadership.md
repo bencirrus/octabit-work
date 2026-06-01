@@ -1,6 +1,6 @@
 ---
-title: "Technology Leadership"
-description: "Fractional CTO and advisory board support for organizations that need senior technology perspective without a full-time hire."
+title: Transformation Enablement
+description: Technology adoption fractional CTO and advisory board support.
 category: advisory
 order: 3
 featured: true
