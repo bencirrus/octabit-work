@@ -1,7 +1,7 @@
 ---
-title: "Digital Transformation"
-description: "Hands-on guidance through the people, process, and technology changes that make transformation stick — not just a deck that sits on a shelf."
+title: Partnership development management
+description: "Expand ISV / SI ecosystem with new LOB, new market segments and geography. "
 category: advisory
-order: 2
+order: 3
 featured: true
 ---
