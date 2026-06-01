@@ -1,6 +1,6 @@
 ---
-title: "AI Workflow Tools"
-description: "Custom internal tools and automation pipelines that help small teams do more with AI — without requiring engineering resources."
+title: Alliance Management
+description: "New partnerships toward common goals and expanded market presence. "
 category: creative
 type: Application
 order: 2
