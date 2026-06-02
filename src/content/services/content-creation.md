@@ -1,8 +1,10 @@
 ---
-title: Content Creation
-description: Instrumental and electronic music exploring the space between
-  structure and improvisation. Released independently and in collaboration.
+title: Game Development
+description: FreeCell Solitaire in a browser for offline entertainment built
+  with Google AI Studio and Gemini.
 category: creative
+type: Application
 order: 99
 featured: true
+link: https://github.com/bencirrus/FreeCell
 ---
