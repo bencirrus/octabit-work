@@ -6,5 +6,5 @@ category: creative
 type: Application
 order: 99
 featured: true
-link: https://github.com/bencirrus/FreeCell
+link: https://bencirrus.github.io/FreeCell/
 ---
