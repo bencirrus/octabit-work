@@ -1,6 +1,7 @@
 ---
 title: Application Development
 description: A stretch interval timer for watchOS for desk-bound workers' health
+  built w/Xcode and Codex
 category: creative
 type: Application
 order: 1
