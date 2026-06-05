@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-@font-face {
-        font-family: "Atkinson";
-        src: url("/fonts/atkinson-regular.woff") format("woff");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-}
-@font-face {
-        font-family: "Atkinson";
-        src: url("/fonts/atkinson-bold.woff") format("woff");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-}
+/* Local Atkinson fonts removed — site uses JetBrains Mono via Google Fonts */
 
 /* Light mode (default) */
 :root {
@@ -64,13 +51,13 @@ html.dark {
 html { scroll-behavior: smooth; }
 
 body {
-        font-family: "Atkinson", system-ui, -apple-system, sans-serif;
+        font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
         margin: 0;
         padding: 0;
         background-color: var(--bg);
         color: var(--text);
-        font-size: 18px;
-        line-height: 1.7;
+        font-size: 16px;
+        line-height: 1.6;
         word-wrap: break-word;
         overflow-wrap: break-word;
         transition: background-color 0.2s ease, color 0.2s ease;
@@ -85,6 +72,87 @@ main {
 
 main.wide { width: var(--max-width-wide); }
 
+main.blog-index {
+        width: min(960px, 100%);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+}
+
+.blog-index ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+.blog-index li {
+        width: calc(50% - 1rem);
+}
+
+.blog-index li * {
+        text-decoration: none;
+        transition: color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-index li:first-child {
+        width: 100%;
+        margin-bottom: 1rem;
+        text-align: center;
+}
+
+.blog-index li:first-child img {
+        width: 100%;
+}
+
+.blog-index img {
+        margin-bottom: 0.5rem;
+        border-radius: var(--radius);
+}
+
+.blog-index a {
+        display: block;
+        color: inherit;
+}
+
+.blog-index .title {
+        margin: 0;
+        color: var(--text);
+        line-height: 1;
+}
+
+.blog-index .date {
+        margin: 0;
+        color: var(--text-muted);
+}
+
+.blog-index li a:hover h4,
+.blog-index li a:hover .date {
+        color: var(--accent);
+}
+
+.blog-index li a:hover img {
+        box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 720px) {
+        .blog-index {
+                padding: 3rem 1rem;
+        }
+        .blog-index ul {
+                gap: 0.5rem;
+        }
+        .blog-index li {
+                width: 100%;
+                text-align: center;
+        }
+        .blog-index li:first-child {
+                margin-bottom: 0;
+        }
+}
+
 h1, h2, h3, h4, h5, h6 {
         margin: 0 0 0.5rem 0;
         color: var(--text);
@@ -92,14 +160,19 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
         letter-spacing: -0.02em;
 }
-h1 { font-size: 2.5rem; }
-h2 { font-size: 1.875rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.1rem; }
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+
+/* Hero and prominent titles */
+.hero h1, .hero h2 { letter-spacing: -0.03em; }
+.hero h1 { font-size: 3rem; }
 
 /* Use JetBrains Mono for prominent/title text */
-h1,h2,h3,h4,h5,h6, .site-name, .service-card strong, .legal-nav a {
+h1,h2,h3,h4,h5,h6, .service-card strong, .legal-nav a {
         font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -114,6 +187,9 @@ a:hover { color: var(--accent-hover); }
 
 p { margin: 0 0 1rem 0; }
 .prose p { margin-bottom: 1.5rem; }
+
+/* Normalized prose sizing */
+.prose { font-size: 1rem; line-height: 1.7; }
 
 img { max-width: 100%; height: auto; border-radius: var(--radius); }
 
