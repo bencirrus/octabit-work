@@ -1,4 +1,4 @@
 ---
 tag: Advisory Scope
-lead: Navigate transition
+lead: Help navigating the transition
 ---
