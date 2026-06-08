@@ -1,7 +1,7 @@
 ---
 title: Transformation Enablement
-description: Technology adoption fractional CTO and advisory board support.
+description: Technology adoption fractional leadership.
 category: advisory
-order: 3
+order: 5
 featured: true
 ---

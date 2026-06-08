@@ -1,7 +1,7 @@
 ---
-title: Business Development Management
-description: Expand markets, grow opportunities, strengthen relationships.
+title: Business Development Management (BDM)
+description: Grow opportunities
 category: advisory
-order: 1
+order: 2
 featured: true
 ---

@@ -3,7 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 const allServices = await getCollection('services');
 const advisoryServices = allServices
@@ -12,6 +12,9 @@ const advisoryServices = allServices
 const creativeServices = allServices
         .filter(s => s.data.category === 'creative' && s.data.featured)
         .sort((a, b) => a.data.order - b.data.order);
+
+const homeEntry = await getEntry('site', 'home');
+const { heroTitleHtml, lead, bottomTitle, bottomText } = homeEntry.data;
 ---
 
 <!doctype html>
@@ -23,9 +26,9 @@ const creativeServices = allServices
                 <Header />
                 <main>
                         <section class="hero">
-                                <h2>Augment <sub>with</sub> Intelligence (A<sub>w</sub>I)™</h2>
+                                <h1 set:html={heroTitleHtml}></h1>
                                 <p class="lead">
-                                        advise / create : intersecting : privacy / security / AI
+                                        {lead}
                                 </p>
                         </section>
 
@@ -33,8 +36,7 @@ const creativeServices = allServices
 
                         <section class="offerings">
                                 <div class="offering-col">
-                                        <a href="/advising" class="tag tag-advisory">Advisory Services</a>
-                                        <p class="col-desc">AI strategy, digital transformation, and technology leadership for organizations navigating rapid change.</p>
+                                        <a href="/advising" class="tag tag-advisory">Advisory Scope:</a>
                                         {advisoryServices.length > 0 && (
                                                 <div class="service-list">
                                                         {advisoryServices.map(s => s.data.link ? (
@@ -52,8 +54,7 @@ const creativeServices = allServices
                                         )}
                                 </div>
                                 <div class="offering-col">
-                                        <a href="/creating" class="tag tag-creative">Creative Work</a>
-                                        <p class="col-desc">Applications, music, and digital experiences built with craft and intention.</p>
+                                        <a href="/creating" class="tag tag-creative">Build/Create:</a>
                                         {creativeServices.length > 0 && (
                                                 <div class="service-list">
                                                         {creativeServices.map(s => s.data.link ? (
@@ -74,8 +75,8 @@ const creativeServices = allServices
 
                         <section class="hero-bottom">
                                 <div class="hero-box">
-                                        <h2>&gt; The name & logo</h2>
-                                        <p>The name and the logo are a nod to the easy experience of video games from the 8-bit era. Advancements that led to better console games left most without the time or patience to master the complex gameplay. That effort would defeat the purpose of gaming as a break—something enjoyable without tedious demands.</p>
+                                        <h2>{bottomTitle}</h2>
+                                        <p>{bottomText}</p>
                                 </div>
                         </section>
                 </main>
@@ -88,12 +89,11 @@ const creativeServices = allServices
                 padding: 1rem 0 0.5rem;
         }
         .hero h1 {
-                font-size: 3.5rem;
                 margin-bottom: 1rem;
                 letter-spacing: -0.03em;
         }
         .lead {
-                font-size: 1.2rem;
+                font-size: 1em;
                 color: var(--text-muted);
                 max-width: 520px;
                 margin: 0;
@@ -143,14 +143,12 @@ const creativeServices = allServices
 
         .service-card strong {
                 display: block;
-                font-size: 1rem;
-                font-weight: 600;
                 color: var(--text);
                 margin-bottom: 0.25rem;
+                font-size: var(--size-title);
         }
 
         .service-card p {
-                font-size: 0.9375rem;
                 color: var(--text-muted);
                 margin: 0;
                 line-height: 1.5;
@@ -179,15 +177,15 @@ const creativeServices = allServices
                 border-radius: var(--radius);
         }
         .hero-box h2 {
-                font-size: 1rem;
+                font-size: var(--size-title);
                 margin: 0 0 0.25rem;
-                font-weight: 600;
+                font-weight: 700;
         }
         .hero-box p {
                 margin: 0;
                 color: var(--text-muted);
-                font-size: 0.9375rem;
-                line-height: 1.5;
+                font-size: var(--size-body);
+                line-height: 1.7;
         }
 
         @media (max-width: 600px) {

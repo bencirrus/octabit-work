@@ -1,8 +1,8 @@
 ---
 title: Strategic Alliance Management
-description: "Drive common goals to expand business and relationships "
+description: Drive common goals
 category: advisory
-type: Application
-order: 2
+type: ""
+order: 3
 featured: true
 ---
