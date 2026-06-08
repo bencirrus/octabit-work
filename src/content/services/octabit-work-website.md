@@ -1,8 +1,7 @@
 ---
 title: OctaBit.work website
-description: Opensource Astro Blog, Decap CMS, Sveltia Auth configured and
-  customzied in w/Windsurf IDE & Cascade, now Devin, and finished in
-  Antigravity.
+description: Opensource blog configured and customzied in w/Windsurf IDE &
+  Cascade, now Devin, and finished in Antigravity.
 category: creative
 type: content management systems
 order: 9
