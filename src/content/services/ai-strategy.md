@@ -1,5 +1,5 @@
 ---
-title: Grow business & ecosystem
+title: Grow Business & Ecosystem
 description: Business Development Management (BDM), Strategic Alliance
   Management, Partnership Development Management (PDM) to increase
   opportunities, alignment and expand CSP/SI/GSI/ISV/VAR/LAR
