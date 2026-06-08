@@ -4,14 +4,68 @@ backend:
   branch: main
   base_url: https://octabit-cms-auth.ben-cirrus.workers.dev
   auth_endpoint: /auth
-local_backend: false
+  local_backend: false
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
+  - name: "site"
+    label: "Site"
+    files:
+      - label: "Settings"
+        name: "settings"
+        file: "src/content/site/settings.json"
+        fields:
+          - { label: "Brand Font Size", name: "brand", widget: "string", default: "1rem" }
+          - { label: "NavBar Font Size", name: "navbar", widget: "string", default: "1rem" }
+          - { label: "Hero Font Size", name: "hero", widget: "string", default: "3rem" }
+          - { label: "Title Font Size", name: "title", widget: "string", default: "2rem" }
+          - { label: "Body Font Size", name: "body", widget: "string", default: "16px" }
+      - label: "About Page"
+        name: "about"
+        file: "src/content/site/about.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Legal Page"
+        name: "legal"
+        file: "src/content/site/legal.md"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "main_pages"
+    label: "Main Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/site/home.md"
+        fields:
+          - { label: "Hero Title HTML", name: "heroTitleHtml", widget: "string" }
+          - { label: "Lead Text", name: "lead", widget: "string" }
+          - { label: "Bottom Box Title", name: "bottomTitle", widget: "string" }
+          - { label: "Bottom Box Text", name: "bottomText", widget: "text" }
+      - label: "Advising Page"
+        name: "advising"
+        file: "src/content/site/advising.md"
+        fields:
+          - { label: "Tag Text", name: "tag", widget: "string" }
+          - { label: "Lead Text", name: "lead", widget: "string" }
+      - label: "Creating Page"
+        name: "creating"
+        file: "src/content/site/creating.md"
+        fields:
+          - { label: "Tag Text", name: "tag", widget: "string" }
+          - { label: "Lead Text", name: "lead", widget: "string" }
   - name: "services"
-    label: "Services & Projects"
+    label: "Services"
     folder: "src/content/services"
     create: true
     slug: "{{slug}}"
@@ -30,7 +84,7 @@ collections:
       - { label: "Link (optional URL)", name: "link", widget: "string", required: false }
 
   - name: "blog"
-    label: "Blog Posts"
+    label: "Blogs"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"

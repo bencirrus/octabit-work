@@ -3,6 +3,11 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
+import { getEntry, render } from 'astro:content';
+
+const aboutEntry = await getEntry('site', 'about');
+const { title } = aboutEntry.data;
+const { Content } = await render(aboutEntry);
 ---
 
 <!doctype html>
@@ -14,26 +19,11 @@ import { SITE_TITLE } from '../consts';
 		<Header />
 		<main>
 			<section class="page-header">
-				<h1>About</h1>
+				<h1>{title}</h1>
 			</section>
 
 			<div class="prose">
-				<p>
-					OctaBit.work is the practice of someone who has spent years at the intersection of technology leadership, product development, and creative work. The name is a small joke about binary — a reminder that things are rarely as simple as on or off.
-				</p>
-
-				<p>
-					The work falls into two areas. <strong>Advising</strong> is for organizations navigating significant technology change — especially the shift that AI is forcing on how knowledge work gets done. <strong>Creating</strong> is the other half: applications, music, and digital projects built with craft and intention.
-				</p>
-
-				<p>
-					The through-line between them is a belief that clarity of thought and quality of execution matter, regardless of the medium.
-				</p>
-
-				<h2>Get in touch</h2>
-				<p>
-					The best way to reach me is by email: <a href="mailto:hello@octabit.work">hello@octabit.work</a>
-				</p>
+				<Content />
 			</div>
 		</main>
 		<Footer />

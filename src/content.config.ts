@@ -26,5 +26,10 @@ const services = defineCollection({
                 link: z.string().url().optional(),
         }),
 });
+const site = defineCollection({
+	loader: glob({ base: "./src/content/site", pattern: "**/*.{md,json}" }),
+	schema: z.any(),
+});
 
-export const collections = { blog, services };
+
+export const collections = { blog, services, site };

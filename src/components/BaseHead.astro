@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
+import { getEntry } from 'astro:content';
 
 interface Props {
 	title: string;
@@ -10,7 +11,20 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+
+const settingsEntry = await getEntry('site', 'settings');
+const { brand, navbar, hero, title: titleFontSize, body } = settingsEntry.data;
 ---
+
+<style is:inline set:html={`
+	:root {
+		--size-brand: ${brand};
+		--size-navbar: ${navbar};
+		--size-hero: ${hero};
+		--size-title: ${titleFontSize};
+		--size-body: ${body};
+	}
+`} />
 
 <!-- Theme init: runs before render to prevent flash -->
 <script is:inline>
