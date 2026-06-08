@@ -1,7 +1,7 @@
 {
-  "brand": "2rem ",
+  "brand": "2rem",
   "navbar": "0.75rem",
-  "hero": "2rem",
+  "hero": "1.75rem",
   "title": "1rem",
   "body": "16px"
 }
