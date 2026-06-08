@@ -1,9 +1,9 @@
 ---
-title: PDM-Hub Portal
-description: Dashboard concept for Partner Development Managers (PDMs) built
-  w/Claude by Anthropic.
+title: BI MBO KPI
+description: PDM-Hub portal concept for Partner Development Managers (PDMs)
+  built w/Claude by Anthropic.
 category: creative
-type: BI MBO KPI
+type: Dashboard
 order: 99
 featured: true
 link: https://bencirrus.github.io/PDM-Hub/
