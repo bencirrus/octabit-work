@@ -1,4 +1,4 @@
 ---
-tag: Creative Services
-lead: "Applications, content and digital experiences:"
+tag: "Creative Services:"
+lead: Mak applications, content and digital experiences.
 ---
