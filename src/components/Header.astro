@@ -85,10 +85,10 @@ import { SITE_TITLE } from '../consts';
         }
 
         .site-name {
-                font-size: 1.5rem;
-                font-weight: 700;
                 color: var(--text);
-                letter-spacing: -0.03em;
+                font-size: var(--size-brand);
+                font-weight: 500;
+                letter-spacing: normal;
                 transition: font-size 0.35s ease;
                 white-space: nowrap;
         }
@@ -139,7 +139,6 @@ import { SITE_TITLE } from '../consts';
         @media (max-width: 480px) {
                 header { padding: 0 1rem; }
                 .logo { height: 44px; }
-                .site-name { font-size: 1.3rem; }
                 nav { height: 64px; }
         }
 </style>
