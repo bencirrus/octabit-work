@@ -1,7 +1,8 @@
 ---
 title: Procurement Negotiation
-description: Subscription/software licensing agreements.
+description: Results driven relationships with your tech solution providers lead
+  to better outcomes from subscription/software licensing agreements.
 category: advisory
 order: 1
-featured: false
+featured: true
 ---
