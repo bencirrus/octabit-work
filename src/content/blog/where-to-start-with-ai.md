@@ -1,6 +1,6 @@
 ---
 title: Where to Start with AI?
-description: Think first vs. start using
+description: Think first or start using
 pubDate: 2026-06-04T16:25:00.000-07:00
 category: advisory
 ---
