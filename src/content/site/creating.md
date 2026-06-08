@@ -1,4 +1,4 @@
 ---
 tag: Creative Services
-lead: Applications, content and digital experiences
+lead: "Applications, content and digital experiences:"
 ---
