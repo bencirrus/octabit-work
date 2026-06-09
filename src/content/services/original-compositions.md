@@ -1,6 +1,6 @@
 ---
 title: EDMachine WebApp
-description: A browser-based offline groovebox built w/Antigravity IDE  and Gemini.
+description: A browser-based offline-able groovebox built w/Antigravity IDE  and Gemini.
 category: creative
 type: Web Application Development
 order: 3
