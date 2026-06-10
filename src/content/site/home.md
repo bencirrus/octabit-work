@@ -7,6 +7,7 @@ bottomText: >-
   don’t have the time or patience to master advanced gameplay, an effort that
   defeats the purpose of taking a break from tedious demands. 🎮 or 🕹️
 
+  <p>
 
   MIT Sloan Executive Education: 
 
