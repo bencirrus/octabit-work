@@ -8,7 +8,7 @@ Where do you spend time on tedious work? What do you have to do repeatedly that 
 
 Its probabilistic nature makes it predictably good at some types of knowledge work: summarizing, drafting, classifying, extracting, and generating options.
 
-That also makes it unpredictable at correctly answering small context specifics of, say, what to do with the @ symbol in your business name when the IRS online form rejects it as you apply for an EIN.
+That also makes it unpredictable at correctly answering small context specifics of, say, what to do with the @ symbol in your business name when the EIN application from the IRS rejects it.
 
 Assessing "AI maturity" is useful eventually, but delays action. We learn better by using it when there's time to experiment.
 
