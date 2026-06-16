@@ -1,4 +1,4 @@
 ---
-tag: "Advisory Scope:"
-lead: Help you navigate the transition.
+tag: help
+lead: how can I be of value?
 ---
