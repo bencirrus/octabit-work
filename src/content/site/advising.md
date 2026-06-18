@@ -1,4 +1,4 @@
 ---
 tag: help
-lead: how can I be of value?
+lead: how can we be of value?
 ---
