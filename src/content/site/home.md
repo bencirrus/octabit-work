@@ -1,6 +1,6 @@
 ---
 heroTitleHtml: Augment <sub>with</sub> Intelligence (A<sub>w</sub>I)™
-lead: help / build ✶ privacy / security / ai
+lead: help / build ✶ ⇄ privacy / security / ai
 bottomTitle: "> The name, logo and our credentials"
 bottomText: >-
   The brand is a nod to the games of the 8-bit era. While consoles improve, most
