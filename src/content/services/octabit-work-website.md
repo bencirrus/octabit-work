@@ -1,6 +1,7 @@
 ---
-title: OctaBit.work website
-description: Open-source blog configured and customized w/Windsurf IDE & Cascade, now Devin.
+title: Blog Content Management System
+description: OctaBit.work Open-source blog configured and customized w/Windsurf
+  IDE & Cascade, now Devin.
 category: creative
 type: content management systems
 order: 9
