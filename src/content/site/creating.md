@@ -1,4 +1,4 @@
 ---
-tag: builld
-lead: what can i make?
+tag: build
+lead: what can we make?
 ---
