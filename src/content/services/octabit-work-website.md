@@ -1,5 +1,5 @@
 ---
-title: Blog Content Management System
+title: CMS Website
 description: OctaBit.work Open-source blog configured and customized w/Windsurf
   IDE & Cascade, now Devin.
 category: creative
