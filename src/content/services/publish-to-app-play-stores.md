@@ -1,8 +1,7 @@
 ---
 title: Publish to App / Play Stores...
-description: ...as this company without doing any of that work yourself. We
-  handle the legal entity, app submission, payment processing, payouts, and
-  ongoing compliance. You focus on building great apps.
+description: We handle app submission, payment processing, payouts, ongoing
+  compliance as this legal entity, you focus on building great apps.
 category: advisory
 order: 6
 featured: true
